@@ -93,7 +93,7 @@ public class GUI extends Application{
 				final long startTime = System.currentTimeMillis();
 				solve();
 				final long endTime = System.currentTimeMillis();
-				System.out.println("Time to find hull: " + (endTime - startTime) + " ms" );
+				System.out.println("Time to solve: " + (endTime - startTime) + " ms" );
 			}
 		});
 		
@@ -169,8 +169,6 @@ public class GUI extends Application{
 	    	           @Override
 	    	           public void handle(MouseEvent e) {
 	    	        	   if (e.isPrimaryButtonDown()) {
-	    	        		   System.out.println("Primary click at " + e.getX() + ", " + e.getY());
-	    	        		   
 	    	        		   /* Poly mode, add new point */
 	    	        		   if (mode == "poly") {
 	    	        			   polyToAdd.addCoord(e.getX(), e.getY());
@@ -185,8 +183,6 @@ public class GUI extends Application{
 	    	        		   }
 	    	        	   }
 	    	        	   else if (e.isSecondaryButtonDown()) {
-	    	        		   System.out.println("Seconday click at " + e.getX() + ", " + e.getY());
-	    	        		   
 	    	        		   /* Finished creating poly */
 	    	        		   if (mode == "poly") {
 	    	        			   mode = "";
@@ -221,6 +217,9 @@ public class GUI extends Application{
 			}
 			for (int i = 0; i < checkpoints.size(); i++) {
 				drawDot(checkpoints.get(i).getX(), checkpoints.get(i).getY(), Color.GREEN);
+			}
+			for (int i = 0; i < S.size(); i++) {
+				S.get(i).printHullCoords();
 			}
 		}
 	}

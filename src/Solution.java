@@ -26,6 +26,18 @@ public class Solution {
 		QuickHull(allCoords);
 	}
 	
+	public void printHullCoords() {
+		System.out.println("Solution:");
+		for (int i = 0; i < ConvexHull.size(); i++) {
+			System.out.println("Point " + (i + 1) + ": X = " + ConvexHull.get(i).getX() + ", Y = " + ConvexHull.get(i).getY());
+		}
+		System.out.println("Coords passed:");
+		for (int i = 0; i < allCoords.size(); i++) {
+			System.out.println("Point " + (i + 1) + ": X = " + allCoords.get(i).getX() + ", Y = " + allCoords.get(i).getY());
+		}
+		System.out.println("");
+	}
+	
 	public void createCoordList() {
 		allCoords = new ArrayList<Coord>();
 		
